@@ -31,6 +31,34 @@ def create_request(data, created_by):
     result = mongo.db.maintenance_requests.insert_one(request_doc)
     return str(result.inserted_id)
 
+def get_calendar_requests(db):
+    """
+    Fetch all maintenance requests that have a scheduled date.
+    Used for calendar view.
+    """
+    requests = list(
+        db.maintenance_requests.find(
+            {"scheduled_date": {"$ne": None}},
+            {
+                "subject": 1,
+                "equipment_id": 1,
+                "scheduled_date": 1
+            }
+        )
+    )
+
+    # Resolve equipment name (simple join)
+    for req in requests:
+        equipment = db.equipment.find_one(
+            {"_id": ObjectId(req["equipment_id"])}
+        )
+        req["equipment_name"] = (
+            equipment["equipment_name"] if equipment else None
+        )
+        req["_id"] = str(req["_id"])
+
+    return requests
+
 def get_requests_for_user(role, team_id=None):
     query = {}
 

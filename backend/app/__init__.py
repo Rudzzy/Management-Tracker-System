@@ -1,4 +1,5 @@
 from flask import Flask
+from flask_cors import CORS
 from app.config.config import Config
 from app.extensions.mongo import mongo
 from app.extensions.jwt import jwt
@@ -6,7 +7,7 @@ from app.extensions.jwt import jwt
 def create_app():
     app = Flask(__name__)
     app.config.from_object(Config)
-
+    CORS(app, supports_credentials=True)
     app.url_map.strict_slashes = False 
     # Initialize extensions
     mongo.init_app(app)

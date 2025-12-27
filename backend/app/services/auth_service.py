@@ -20,7 +20,7 @@ def login_user(email, password):
         identity=str(user["_id"]),
         additional_claims=additional_claims
     )
-
+    print(access_token)
     return {
         "access_token": access_token,
         "user": {

@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import Layout from "../components/common/Layout";
 import { getWorkCenterRequests } from "../api/requestApi";
+import { Plus } from "lucide-react";
 
 const WorkCenter = () => {
   const [workItems, setWorkItems] = useState([]);
@@ -26,13 +27,19 @@ const WorkCenter = () => {
 
   return (
     <Layout>
-      <div className="mb-6">
-        <h1 className="text-3xl font-bold text-white mb-2">
-          Work Center
-        </h1>
-        <p className="text-slate-400">
-          Active maintenance jobs currently being executed.
-        </p>
+      <div className="flex justify-between items-center mb-6">
+        <div>
+          <h1 className="text-3xl font-bold text-white mb-2">
+            Work Center
+          </h1>
+          <p className="text-slate-400">
+            Active maintenance jobs currently being executed.
+          </p>
+        </div>
+        <button className="flex items-center space-x-2 bg-blue-600 hover:bg-blue-700 text-white px-4 py-2 rounded-lg transition">
+          <Plus size={20} />
+          <span>Add Job</span>
+        </button>
       </div>
 
       {loading && (

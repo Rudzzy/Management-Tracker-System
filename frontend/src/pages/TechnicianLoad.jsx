@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import Layout from "../components/common/Layout";
 import { getTechnicianLoad } from "../api/requestApi";
+import { Download } from "lucide-react";
 
 const TechnicianLoad = () => {
   const [technicians, setTechnicians] = useState([]);
@@ -25,13 +26,19 @@ const TechnicianLoad = () => {
 
   return (
     <Layout>
-      <div className="mb-6">
-        <h1 className="text-3xl font-bold text-white mb-2">
-          Technician Load
-        </h1>
-        <p className="text-slate-400">
-          Workforce utilization and active workload distribution.
-        </p>
+      <div className="flex justify-between items-center mb-6">
+        <div>
+          <h1 className="text-3xl font-bold text-white mb-2">
+            Technician Load
+          </h1>
+          <p className="text-slate-400">
+            Workforce utilization and active workload distribution.
+          </p>
+        </div>
+        <button className="flex items-center space-x-2 bg-slate-700 hover:bg-slate-600 text-white px-4 py-2 rounded-lg transition">
+          <Download size={20} />
+          <span>Export Report</span>
+        </button>
       </div>
 
       {loading && (

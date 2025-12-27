@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import Layout from "../components/common/Layout";
 import { getCalendarRequests } from "../api/requestApi";
+import { Plus } from "lucide-react";
 
 const MaintenanceCalendar = () => {
   const [events, setEvents] = useState([]);
@@ -25,13 +26,19 @@ const MaintenanceCalendar = () => {
 
   return (
     <Layout>
-      <div className="mb-6">
-        <h1 className="text-3xl font-bold text-white mb-2">
-          Maintenance Calendar
-        </h1>
-        <p className="text-slate-400">
-          Scheduled preventive and corrective maintenance activities.
-        </p>
+      <div className="flex justify-between items-center mb-6">
+        <div>
+          <h1 className="text-3xl font-bold text-white mb-2">
+            Maintenance Calendar
+          </h1>
+          <p className="text-slate-400">
+            Scheduled preventive and corrective maintenance activities.
+          </p>
+        </div>
+        <button className="flex items-center space-x-2 bg-blue-600 hover:bg-blue-700 text-white px-4 py-2 rounded-lg transition">
+          <Plus size={20} />
+          <span>Schedule Maintenance</span>
+        </button>
       </div>
 
       {loading && (

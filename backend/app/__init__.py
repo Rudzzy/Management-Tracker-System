@@ -7,6 +7,7 @@ def create_app():
     app = Flask(__name__)
     app.config.from_object(Config)
 
+    app.url_map.strict_slashes = False 
     # Initialize extensions
     mongo.init_app(app)
     from app.extensions.jwt import init_jwt

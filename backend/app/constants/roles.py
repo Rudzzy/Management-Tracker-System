@@ -1,0 +1,6 @@
+ADMIN = "Admin"
+MANAGER = "Manager"
+TECHNICIAN = "Technician"
+EMPLOYEE = "Employee"
+
+ALL_ROLES = [ADMIN, MANAGER, TECHNICIAN, EMPLOYEE]

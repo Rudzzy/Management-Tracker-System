@@ -1,0 +1,6 @@
+NEW = "New"
+IN_PROGRESS = "In Progress"
+REPAIRED = "Repaired"
+SCRAP = "Scrap"
+
+ALL_STATUSES = [NEW, IN_PROGRESS, REPAIRED, SCRAP]

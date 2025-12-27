@@ -1,0 +1,4 @@
+CORRECTIVE = "Corrective"
+PREVENTIVE = "Preventive"
+
+ALL_TYPES = [CORRECTIVE, PREVENTIVE]
